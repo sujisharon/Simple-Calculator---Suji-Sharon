@@ -1,0 +1,50 @@
+#include <cstdio> 
+
+using namespace stdio;
+
+int main() {
+    double num1, num2;
+    char operation;
+
+    printf("Enter the first number: ");
+    scanf("%lf", &num1);
+
+    printf("Enter the second number: ");
+    scanf("%lf", &num2);
+
+    printf("Choose an operation (+, -, *, /): ");
+    scanf(" %c", &operation);
+
+    double result;
+    bool validOperation = true;
+
+    switch (operation) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+                validOperation = false;
+            }
+            break;
+        default:
+            printf("Error: Invalid operation.\n");
+            validOperation = false;
+            break;
+    }
+
+    if (validOperation) {
+        printf("The result is: %.2lf\n", result);
+    }
+
+    return 0;
+}
